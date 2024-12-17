@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uza - Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shopping.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" style="text-decoration: none;">
+                    <span>uza</span><span>Point</span>
+                </a>
+                <span class="logo-slogan">Your One-Stop Shopping Solution</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="clothing">Clothing</button>
+        <button class="category-btn" data-category="electronics">Electronics</button>
+        <button class="category-btn" data-category="food">Food</button>
+        <button class="category-btn" data-category="drinks">Drinks</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-container">
+        <div id="products-grid" class="products-grid">
+            <!-- Kahawa -->
+            <div class="product-card" data-category="drinks">
+                <img src="kahawa.png" class="product-img" alt="Kahawa">
+                <div class="product-info">
+                    <h3 class="product-name">Kahawa</h3>
+                    <p class="product-price">KSh 200</p>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">
+                        <span class="button-text">Add to Cart</span>
+                        <span class="button-icon">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Smartphone -->
+            <div class="product-card" data-category="electronics">
+                <img src="smartphone.png" class="product-img" alt="Smartphone">
+                <div class="product-info">
+                    <h3 class="product-name">Smartphone</h3>
+                    <p class="product-price">KSh 15,000</p>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">
+                        <span class="button-text">Add to Cart</span>
+                        <span class="button-icon">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Earbuds -->
+            <div class="product-card" data-category="electronics">
+                <img src="earbuds.png" class="product-img" alt="Earbuds">
+                <div class="product-info">
+                    <h3 class="product-name">Earbuds</h3>
+                    <p class="product-price">KSh 2,500</p>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">
+                        <span class="button-text">Add to Cart</span>
+                        <span class="button-icon">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Kimbo -->
+            <div class="product-card" data-category="food">
+                <img src="kimbo.png" class="product-img" alt="Kimbo">
+                <div class="product-info">
+                    <h3 class="product-name">Kimbo</h3>
+                    <p class="product-price">KSh 450</p>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">
+                        <span class="button-text">Add to Cart</span>
+                        <span class="button-icon">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ajab Flour -->
+            <div class="product-card" data-category="food">
+                <img src="ajabflour.png" class="product-img" alt="Ajab Flour">
+                <div class="product-info">
+                    <h3 class="product-name">Ajab Flour</h3>
+                    <p class="product-price">KSh 180</p>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">
+                        <span class="button-text">Add to Cart</span>
+                        <span class="button-icon">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Doritos -->
+            <div class="product-card" data-category="food">
+                <img src="doritos.png" class="product-img" alt="Doritos">
+                <div class="product-info">
+                    <h3 class="product-name">Doritos</h3>
+                    <p class="product-price">KSh 150</p>
+                    <button class="add-to-cart-btn" onclick="addToCart(this)">
+                        <span class="button-text">Add to Cart</span>
+                        <span class="button-icon">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this div for notifications at the end of your body tag, before scripts -->
+    <div id="notification-container"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="shopping.js"></script>
+</body>
+</html> 

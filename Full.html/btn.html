@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Synthwave Snake Light Button</title>
+  <style>
+    /* Keyframes for the snake light effect */
+    @keyframes snake-light {
+      0% {
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8);
+        border-color: rgba(255, 0, 255, 1);
+      }
+      25% {
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 0, 255, 0.8);
+        border-color: rgba(255, 255, 0, 1);
+      }
+      50% {
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 255, 0, 0.8);
+        border-color: rgba(0, 255, 255, 1);
+      }
+      75% {
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.8), 0 0 30px rgba(0, 255, 255, 0.8);
+        border-color: rgba(0, 255, 0, 1);
+      }
+      100% {
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8);
+        border-color: rgba(255, 0, 255, 1);
+      }
+    }
+
+    /* Glow effect with snake animation */
+    .synthwave-snake {
+      animation: snake-light 2s infinite;
+      transition: transform 0.3s ease;
+    }
+    .synthwave-snake:hover {
+      transform: scale(1.1);
+    }
+    .synthwave-snake:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+  <button class="synthwave-snake px-8 py-4 text-white font-bold text-xl rounded-full bg-gradient-to-r from-purple-500 to-pink-500 border-4">
+    ⚡ Snake Glow ⚡
+  </button>
+</body>
+</html>

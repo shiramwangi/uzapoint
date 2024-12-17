@@ -1,0 +1,393 @@
+/*************/
+/* Variables */
+/*************/
+
+.btn-container {
+    /* Content */
+    --char-anim-duration: 2s;
+    --char-anim-rotation: 15deg;
+  
+    /* Background */
+    --sky-color-fill: #000;
+    --sky-color-glow: #005;
+  
+    /* Background - Neon */
+    --neon-color-blue: #0ff;
+    --neon-color-red: #c0f;
+  
+    /* Background - Road */
+    --road-height: 40%;
+    --road-width-line: 15%;
+  
+    --line-anim-number: 2;
+    --line-anim-duration: 500ms;
+    --line-anim-length: calc(
+      (100% + var(--road-width-line)) / var(--line-anim-number)
+    );
+  
+    /* Background - Sun */
+    --sun-color-fill: #ec0;
+    --sun-color-glow-1: #a33;
+    --sun-color-glow-2: #505;
+    --sun-color-glow-3: #005;
+    --sun-radius: 20%;
+  
+    --ray-anim-number: 5;
+    --ray-anim-duration: 400ms;
+    --ray-anim-length: calc(50% / var(--ray-anim-number));
+    --ray-anim-height: calc(0.25rem / var(--ray-anim-number));
+  }
+  .btn-bg__extra span {
+    --extra-anim-start: 2s;
+    --extra-anim-duration: calc(2s * var(--tempo));
+  }
+  
+  /**********/
+  /* Styles */
+  /**********/
+  
+  /* Commun */
+  .char-glow {
+    position: absolute;
+  }
+  .char-glow::before,
+  .char-glow::after {
+    bottom: 0;
+    content: attr(data-content);
+    position: absolute;
+    text-wrap: nowrap;
+  }
+  .char-glow::before {
+    color: transparent;
+    text-shadow:
+      0 0 1px var(--neon-color-blue),
+      0 0 1px var(--neon-color-blue),
+      0 0 5px var(--neon-color-blue);
+  }
+  .char-glow::after {
+    color: transparent;
+  }
+  
+  /* Container */
+  .btn-container {
+    aspect-ratio: 2;
+    border: none;
+    border-radius: 0.5rem;
+    min-width: 300px;
+    overflow: hidden;
+    position: relative;
+    width: 30rem;
+  }
+  .btn-container,
+  .btn-container * {
+    cursor: pointer;
+  }
+  .btn-button {
+    background: linear-gradient(
+      to top,
+      var(--sun-color-glow-1) 40%,
+      var(--sun-color-glow-2) 55%,
+      var(--sun-color-glow-3) 75%
+    );
+    border: inherit;
+    border-radius: inherit;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Sensor */
+  .btn-sensor {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .btn-sensor__input {
+    display: none;
+  }
+  
+  /* Content */
+  .btn-content {
+    bottom: 0;
+    height: var(--road-height);
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .btn-content__char {
+    animation-duration: var(--char-anim-duration);
+    animation-iteration-count: infinite;
+    animation-name: charSlide;
+    animation-play-state: paused;
+    animation-timing-function: linear;
+    bottom: 25%;
+    font-size: 2rem;
+    left: 10%;
+    transition: all 500ms ease-in-out;
+  }
+  .btn-content__char::before,
+  .btn-content__char::after {
+    left: 0;
+    transform: rotateY(180deg);
+  }
+  .btn-content__char::after {
+    background: radial-gradient(
+      ellipse at top,
+      var(--sky-color-glow) 20%,
+      var(--sky-color-fill) 60%
+    );
+    background-clip: text;
+  }
+  
+  .btn-content__text {
+    align-items: center;
+    color: var(--neon-color-blue);
+    display: flex;
+    font-size: 1.2rem;
+    height: 50%;
+    justify-content: center;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    text-shadow:
+      0 0 1px var(--neon-color-blue),
+      0 0 2px var(--neon-color-blue),
+      0 0 5px var(--neon-color-blue);
+    transition: all 500ms ease-in-out;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Background */
+  .btn-bg {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Background - Extras */
+  .btn-bg__extra {
+    top: 0;
+    height: calc(100% + 0.5rem - var(--road-height));
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+  }
+  .btn-bg__extra span {
+    animation-duration: var(--extra-anim-duration);
+    animation-iteration-count: infinite;
+    animation-name: extraSlide;
+    animation-play-state: paused;
+    animation-timing-function: linear;
+    bottom: 0;
+    font-size: 2rem;
+    right: 0;
+    width: 100%;
+  }
+  .btn-bg__extra span::before,
+  .btn-bg__extra span::after {
+    font-size: calc(1em * var(--font));
+    left: var(--left);
+  }
+  .btn-bg__extra span::after {
+    background: radial-gradient(
+      ellipse at bottom,
+      var(--sky-color-glow) 0%,
+      var(--sky-color-fill) 40%
+    );
+    background-clip: text;
+  }
+  
+  /* Background - Road */
+  .btn-bg__road {
+    background: radial-gradient(
+      ellipse at top,
+      var(--sky-color-glow),
+      var(--sky-color-fill) 60%
+    );
+    height: var(--road-height);
+    position: absolute;
+    top: calc(100% - var(--road-height));
+    width: 100%;
+  }
+  
+  .btn-bg__road-border,
+  .btn-bg__road-line {
+    background: var(--neon-color-red);
+    box-shadow: 0 0 3px var(--neon-color-red);
+    position: absolute;
+  }
+  .btn-bg__road-border {
+    height: 2px;
+    top: 0;
+    width: 100%;
+  }
+  .btn-bg__road-line {
+    animation-duration: var(--line-anim-duration);
+    animation-iteration-count: infinite;
+    animation-name: lineSlide;
+    animation-play-state: paused;
+    animation-timing-function: linear;
+    height: 1px;
+    top: calc(50% - 1px);
+    width: var(--road-width-line);
+  }
+  
+  /* Background - Sun */
+  .btn-bg__sun {
+    aspect-ratio: 1;
+    background: var(--sun-color-fill);
+    border-radius: 100% 100% 0 0;
+    bottom: calc(var(--road-height) / 2 - var(--sun-radius));
+    box-shadow:
+      0 0 10px var(--sun-color-glow-1),
+      0 0 20px var(--sun-color-glow-1),
+      0 0 30px var(--sun-color-glow-1),
+      0 0 40px var(--sun-color-glow-1);
+    left: calc(50% - var(--sun-radius));
+    overflow: hidden;
+    position: absolute;
+    width: calc(var(--sun-radius) * 2);
+  }
+  .btn-bg__sun-ray {
+    animation-duration: var(--ray-anim-duration);
+    animation-iteration-count: infinite;
+    animation-name: raySlide;
+    animation-play-state: paused;
+    animation-timing-function: linear;
+    background: radial-gradient(
+      ellipse at center,
+      var(--sky-color-fill),
+      var(--sky-color-glow) 50%,
+      var(--sun-color-glow-1) 75%
+    );
+    box-shadow: 0 0 1px var(--sun-color-glow-1);
+    position: absolute;
+    width: 100%;
+  }
+  
+  /****************/
+  /* Interactions */
+  /****************/
+  
+  .btn-container:hover .btn-content__char,
+  .btn-container:hover .btn-bg__extra span,
+  .btn-container:hover .btn-bg__road-line,
+  .btn-container:hover .btn-bg__sun-ray {
+    animation-play-state: running;
+  }
+  .btn-sensor__input:checked ~ .btn-button .btn-content__char {
+    left: 100%;
+  }
+  .btn-sensor__input:checked ~ .btn-button .btn-content__text {
+    opacity: 0;
+  }
+  
+  /**************/
+  /* Animations */
+  /**************/
+  
+  /* Slide char */
+  @keyframes charSlide {
+    0% {
+      bottom: 25%;
+      transform: rotateY(0);
+    }
+  
+    10% {
+      bottom: 25%;
+      transform: rotateY(0);
+    }
+  
+    20% {
+      bottom: 25%;
+      transform: rotateY(var(--char-anim-rotation));
+    }
+  
+    30% {
+      bottom: 50%;
+      transform: rotateY(var(--char-anim-rotation));
+    }
+  
+    40% {
+      bottom: 75%;
+      transform: rotateY(var(--char-anim-rotation));
+    }
+  
+    50% {
+      bottom: 75%;
+      transform: rotateY(0deg);
+    }
+  
+    60% {
+      bottom: 75%;
+      transform: rotateY(0deg);
+    }
+  
+    70% {
+      bottom: 75%;
+      transform: rotateY(calc(-1 * var(--char-anim-rotation)));
+    }
+  
+    80% {
+      bottom: 50%;
+      transform: rotateY(calc(-1 * var(--char-anim-rotation)));
+    }
+  
+    90% {
+      bottom: 25%;
+      transform: rotateY(calc(-1 * var(--char-anim-rotation)));
+    }
+  
+    100% {
+      bottom: 25%;
+      transform: rotateY(0deg);
+    }
+  }
+  
+  /* Slide extras */
+  @keyframes extraSlide {
+    0% {
+      right: calc(-100% * (var(--tempo) - 1));
+    }
+  
+    100% {
+      right: 100%;
+    }
+  }
+  
+  /* Slide road lines */
+  @keyframes lineSlide {
+    0% {
+      right: calc(
+        var(--order) * var(--line-anim-length) - var(--road-width-line)
+      );
+    }
+  
+    100% {
+      right: calc(
+        (var(--order) + 1) * var(--line-anim-length) - var(--road-width-line)
+      );
+    }
+  }
+  
+  /* Slide sunrays */
+  @keyframes raySlide {
+    0% {
+      height: calc(var(--ray-anim-height) * (var(--order) + 1));
+      top: calc(var(--ray-anim-length) * (var(--order) + 1));
+    }
+  
+    100% {
+      height: calc(var(--ray-anim-height) * var(--order));
+      top: calc(var(--ray-anim-length) * var(--order));
+    }
+  }
+  

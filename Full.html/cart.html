@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag - uzaPoint</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="cart-container">
+        <header class="cart-header">
+            <h1>Shopping Bag</h1>
+            <p class="items-count">2 items in your bag</p>
+        </header>
+
+        <div class="cart-content">
+            <div class="cart-items">
+                <!-- Smartphone Item -->
+                <div class="cart-item">
+                    <div class="item-image">
+                        <img src="phone.png" alt="Smartphone">
+                    </div>
+                    <div class="item-details">
+                        <h3>Smartphone</h3>
+                        <p class="item-price">KSh 15,000</p>
+                        <div class="quantity-controls">
+                            <button class="qty-btn">-</button>
+                            <span class="quantity">1</span>
+                            <button class="qty-btn">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+
+                <!-- Traditional Dress Item -->
+                <div class="cart-item">
+                    <div class="item-image">
+                        <img src="traditionaldress.png" alt="Traditional Dress">
+                    </div>
+                    <div class="item-details">
+                        <h3>Traditional Dress</h3>
+                        <p class="item-price">KSh 3,500</p>
+                        <div class="quantity-controls">
+                            <button class="qty-btn">-</button>
+                            <span class="quantity">1</span>
+                            <button class="qty-btn">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <div class="shipping-calculator">
+                    <h3>Calculated Shipping</h3>
+                    <select class="shipping-select">
+                        <option>Select location</option>
+                        <option>Nairobi</option>
+                        <option>Mombasa</option>
+                        <option>Kisumu</option>
+                    </select>
+                </div>
+
+                <div class="coupon-section">
+                    <h3>Coupon Code</h3>
+                    <div class="coupon-input">
+                        <input type="text" placeholder="Enter coupon code">
+                        <button class="apply-btn">Apply</button>
+                    </div>
+                </div>
+
+                <div class="cart-total">
+                    <h3>Cart Total</h3>
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span>KSh 18,500</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="total-row final">
+                        <span>Total</span>
+                        <span>KSh 18,500</span>
+                    </div>
+                    <button class="checkout-btn">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
