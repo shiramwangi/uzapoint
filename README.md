@@ -1,9 +1,3 @@
-
----
-
-### **Uzapoint - Local E-Commerce Platform**
-
-```markdown
 # Uzapoint: Local E-Commerce Website
 
 Welcome to **Uzapoint**, your go-to online marketplace for locally sourced products! Uzapoint connects local vendors and buyers, empowering communities and supporting small businesses. With a focus on convenience and security, Uzapoint makes it easy for you to shop for the best products in your locality.
@@ -32,3 +26,12 @@ Welcome to **Uzapoint**, your go-to online marketplace for locally sourced produ
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/uzapoint.git
+2. Go to the project folder
+   ```bash
+   cd uzapoint
+3. Install dependancies
+   ```bash
+   npm install
+4. Run the development server
+   ```bash
+   npm start
